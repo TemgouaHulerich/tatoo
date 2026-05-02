@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100">
+  <rect width="900" height="1100" fill="#080706"/>
+  <circle cx="450" cy="455" r="300" fill="#d8a43a" opacity=".12"/>
+  <path d="M190 520 C305 355 610 355 720 520 C585 470 340 470 190 520 Z" fill="#f6df90" opacity=".75"/>
+  <path d="M238 560 C350 490 575 492 675 558" fill="none" stroke="#b97818" stroke-width="14" stroke-linecap="round"/>
+  <text x="86" y="965" fill="#f6df90" font-family="Georgia, serif" font-size="76">Micro Shading</text>
+</svg>

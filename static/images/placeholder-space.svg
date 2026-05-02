@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100">
+  <rect width="900" height="1100" fill="#050505"/>
+  <path d="M120 180 H780 V920 H120 Z" fill="#15100b" stroke="#d8a43a" stroke-width="5"/>
+  <path d="M210 830 H690" stroke="#f6df90" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="450" cy="380" r="185" fill="none" stroke="#d8a43a" stroke-width="7"/>
+  <path d="M300 640 H600 V820 H300 Z" fill="#2b1d0b"/>
+  <text x="122" y="1010" fill="#f6df90" font-family="Georgia, serif" font-size="70">Espace beauté</text>
+</svg>

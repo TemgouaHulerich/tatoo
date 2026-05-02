@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Prestations - JBROW{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <div class="container" data-reveal>
+    <p class="eyebrow">Prestations</p>
+    <h1>Micro Shading, esthétique et beauté du regard</h1>
+    <p>Chaque prestation dure 1 heure. Les prix sont prévus pour être modifiés facilement depuis la base ou le code d'initialisation.</p>
+  </div>
+</section>
+
+<section class="section-pad bg-cream">
+  <div class="container">
+    <div class="row g-4">
+      {% for service in services %}
+      <div class="col-lg-4 col-md-6" data-reveal>
+        <article class="service-card h-100">
+          <div class="service-image soft-placeholder" style="background-image: linear-gradient(145deg, rgba(5, 5, 5, 0.86), rgba(54, 38, 12, 0.74)), url('{{ url_for('static', filename=service.image) }}');">
+            <span>{{ service.name }}</span>
+          </div>
+          <div class="p-4">
+            <h2>{{ service.name }}</h2>
+            <p>{{ service.description }}</p>
+            <dl class="service-details">
+              <div><dt>Durée</dt><dd>{{ service.duration_minutes }} min</dd></div>
+              <div><dt>Prix</dt><dd>{{ service.price }}</dd></div>
+            </dl>
+            <a href="{{ url_for('booking', service_id=service.id) }}" class="btn btn-gold w-100">Réserver cette prestation</a>
+          </div>
+        </article>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

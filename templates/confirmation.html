@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Réservation confirmée - JBROW{% endblock %}
+{% block content %}
+<section class="page-hero compact">
+  <div class="container text-center" data-reveal>
+    <p class="eyebrow">Demande reçue</p>
+    <h1>Votre rendez-vous est enregistré</h1>
+    <p>Vous recevrez une confirmation manuelle par téléphone ou email si besoin.</p>
+  </div>
+</section>
+
+<section class="section-pad bg-cream">
+  <div class="container">
+    <div class="confirmation-card mx-auto" data-reveal>
+      <img src="{{ url_for('static', filename=logo_path) }}" onerror="this.style.display='none'" alt="JBROW" class="confirmation-logo">
+      <dl>
+        <div><dt>Nom</dt><dd>{{ appointment.first_name }} {{ appointment.last_name }}</dd></div>
+        <div><dt>Prestation</dt><dd>{{ appointment.service_name }}</dd></div>
+        <div><dt>Date</dt><dd>{{ appointment.appointment_date }}</dd></div>
+        <div><dt>Heure</dt><dd>{{ appointment.appointment_time }}</dd></div>
+        <div><dt>Durée</dt><dd>{{ appointment.duration_minutes }} min</dd></div>
+      </dl>
+      <a href="{{ url_for('index') }}" class="btn btn-dark-gold w-100">Retour à l'accueil</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

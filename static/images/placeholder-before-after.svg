@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100">
+  <rect width="900" height="1100" fill="#080706"/>
+  <rect x="80" y="110" width="320" height="760" fill="#17110a" stroke="#d8a43a" stroke-width="4"/>
+  <rect x="500" y="110" width="320" height="760" fill="#1d1408" stroke="#f6df90" stroke-width="4"/>
+  <path d="M130 510 C205 430 300 430 360 510" fill="none" stroke="#b97818" stroke-width="18" stroke-linecap="round"/>
+  <path d="M545 500 C635 385 745 405 790 500" fill="none" stroke="#f6df90" stroke-width="18" stroke-linecap="round"/>
+  <text x="112" y="965" fill="#f6df90" font-family="Georgia, serif" font-size="76">Avant / Après</text>
+</svg>

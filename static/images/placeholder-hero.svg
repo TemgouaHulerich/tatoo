@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500">
+  <rect width="1200" height="1500" fill="#050505"/>
+  <path d="M0 1120 C260 950 390 1240 640 1035 C850 862 980 1000 1200 820 V1500 H0 Z" fill="#241707"/>
+  <circle cx="820" cy="430" r="300" fill="#d8a43a" opacity=".18"/>
+  <circle cx="595" cy="655" r="350" fill="none" stroke="#f6df90" stroke-width="5" opacity=".55"/>
+  <path d="M305 760 C430 600 740 600 895 760 C725 705 480 705 305 760 Z" fill="#f6df90" opacity=".62"/>
+  <text x="90" y="1340" fill="#f6df90" font-family="Georgia, serif" font-size="116" font-weight="700">JBROW</text>
+</svg>

@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}Dashboard admin - JBROW{% endblock %}
+{% block content %}
+<section class="page-hero compact">
+  <div class="container" data-reveal>
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+      <div>
+        <p class="eyebrow">Administration</p>
+        <h1>Rendez-vous</h1>
+      </div>
+      <form method="post" action="{{ url_for('admin_logout') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+        <button class="btn btn-outline-light" type="submit">Déconnexion</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad bg-cream">
+  <div class="container">
+    <form class="admin-filter row g-2 align-items-end mb-4" method="get" data-reveal>
+      <div class="col-sm-4">
+        <label for="date" class="form-label">Filtrer par date</label>
+        <input class="form-control" type="date" id="date" name="date" value="{{ filter_date }}">
+      </div>
+      <div class="col-sm-auto">
+        <button class="btn btn-dark-gold" type="submit">Filtrer</button>
+      </div>
+      <div class="col-sm-auto">
+        <a href="{{ url_for('admin_dashboard') }}" class="btn btn-outline-dark">Réinitialiser</a>
+      </div>
+    </form>
+
+    <div class="table-responsive admin-table" data-reveal>
+      <table class="table align-middle">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Heure</th>
+            <th>Cliente</th>
+            <th>Contact</th>
+            <th>Prestation</th>
+            <th>Statut</th>
+            <th>Notes</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for appointment in appointments %}
+          <tr>
+            <td>{{ appointment.appointment_date }}</td>
+            <td>{{ appointment.appointment_time }}</td>
+            <td>{{ appointment.first_name }} {{ appointment.last_name }}</td>
+            <td>{{ appointment.phone }}<br><span class="text-muted">{{ appointment.email }}</span></td>
+            <td>{{ appointment.service_name }}</td>
+            <td><span class="status-pill {{ appointment.status }}">{{ appointment.status }}</span></td>
+            <td>{{ appointment.notes or "-" }}</td>
+            <td class="text-end">
+              {% if appointment.status == "booked" %}
+              <form method="post" action="{{ url_for('admin_cancel_appointment', appointment_id=appointment.id) }}" class="d-inline">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                <input type="hidden" name="date" value="{{ filter_date }}">
+                <button class="btn btn-sm btn-outline-warning" type="submit">Annuler</button>
+              </form>
+              {% endif %}
+              <form method="post" action="{{ url_for('admin_delete_appointment', appointment_id=appointment.id) }}" class="d-inline">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                <input type="hidden" name="date" value="{{ filter_date }}">
+                <button class="btn btn-sm btn-outline-danger" type="submit">Supprimer</button>
+              </form>
+            </td>
+          </tr>
+          {% else %}
+          <tr><td colspan="8" class="text-center py-5">Aucun rendez-vous trouvé.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+{% endblock %}

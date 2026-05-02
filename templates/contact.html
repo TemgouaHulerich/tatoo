@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Contact - JBROW{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <div class="container" data-reveal>
+    <p class="eyebrow">Contact</p>
+    <h1>Votre institut beauté</h1>
+    <p>Les coordonnées ci-dessous sont prêtes à être remplacées par les informations officielles de JBROW.</p>
+  </div>
+</section>
+
+<section class="section-pad bg-cream">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-5" data-reveal>
+        <div class="contact-panel">
+          <h2>JBROW, Lashes & Beauty Empire</h2>
+          <p><strong>Adresse</strong><br>Adresse de l'institut à compléter</p>
+          <p><strong>Téléphone</strong><br>+33 0 00 00 00 00</p>
+          <p><strong>Email</strong><br>contact@jbrow.example</p>
+          <p><strong>Instagram</strong><br>@jbrow.beauty</p>
+          <div class="d-flex flex-wrap gap-2 mt-4">
+            <a href="https://wa.me/33000000000" class="btn btn-gold">WhatsApp</a>
+            <a href="{{ url_for('booking') }}" class="btn btn-dark-gold">Réserver</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7" data-reveal>
+        <div class="map-placeholder">
+          <span>Carte Google Maps à intégrer</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

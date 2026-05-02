@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}Prendre rendez-vous - JBROW{% endblock %}
+{% block content %}
+<section class="page-hero compact">
+  <div class="container" data-reveal>
+    <p class="eyebrow">Réservation</p>
+    <h1>Choisissez votre créneau</h1>
+    <p>Une prestation dure 1 heure. Les rendez-vous sont ouverts de 08:00 à 17:00, avec dernier départ à 16:00.</p>
+  </div>
+</section>
+
+<section class="section-pad bg-cream">
+  <div class="container">
+    <div class="booking-shell" data-reveal>
+      <form method="post" class="row g-4" id="bookingForm" novalidate>
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+        <div class="col-lg-7">
+          <div class="form-panel">
+            <h2>Vos informations</h2>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label" for="first_name">Prénom</label>
+                <input class="form-control" id="first_name" name="first_name" value="{{ form.first_name or '' }}" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="last_name">Nom</label>
+                <input class="form-control" id="last_name" name="last_name" value="{{ form.last_name or '' }}" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="phone">Téléphone</label>
+                <input class="form-control" id="phone" name="phone" value="{{ form.phone or '' }}" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="email">Email</label>
+                <input class="form-control" type="email" id="email" name="email" value="{{ form.email or '' }}" required>
+              </div>
+              <div class="col-12">
+                <label class="form-label" for="notes">Commentaire optionnel</label>
+                <textarea class="form-control" id="notes" name="notes" rows="4">{{ form.notes or '' }}</textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="form-panel sticky-lg-top booking-side">
+            <h2>Détails du rendez-vous</h2>
+            <label class="form-label" for="service_id">Prestation</label>
+            <select class="form-select" id="service_id" name="service_id" required>
+              <option value="">Choisir une prestation</option>
+              {% for service in services %}
+              <option value="{{ service.id }}" {% if selected_service_id == service.id or form.service_id == service.id %}selected{% endif %}>{{ service.name }} - {{ service.price }}</option>
+              {% endfor %}
+            </select>
+
+            <label class="form-label mt-3" for="appointment_date">Date</label>
+            <input class="form-control" type="date" id="appointment_date" name="appointment_date" min="{{ min_date }}" value="{{ form.appointment_date or min_date }}" required>
+
+            <label class="form-label mt-3">Créneau disponible</label>
+            <input type="hidden" id="appointment_time" name="appointment_time" value="{{ form.appointment_time or '' }}" required>
+            <div class="slot-grid" id="slotGrid" data-selected="{{ form.appointment_time or '' }}">
+              <span class="slot-message">Sélectionnez une prestation et une date.</span>
+            </div>
+
+            <button class="btn btn-gold w-100 btn-lg mt-4" type="submit">Confirmer la demande</button>
+            <p class="booking-note">La confirmation définitive peut être validée manuellement par téléphone ou email.</p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block title %}JBROW - Micro Shading & Beauté du regard{% endblock %}
+{% block content %}
+<section class="hero-section">
+  <div class="container">
+    <div class="row align-items-center min-vh-100 py-5">
+      <div class="col-lg-7" data-reveal>
+        <img src="{{ url_for('static', filename=logo_path) }}" onerror="this.style.display='none'" alt="JBROW Lashes & Beauty Empire" class="hero-logo">
+        <p class="eyebrow">Institut premium de Micro Shading</p>
+        <h1>JBROW</h1>
+        <p class="hero-subtitle">Lashes & Beauty Empire</p>
+        <p class="hero-copy">La beauté rend tout meilleur. Une expérience raffinée pour sublimer le regard, structurer les sourcils et révéler une élégance naturelle.</p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="{{ url_for('booking') }}" class="btn btn-gold btn-lg">Prendre rendez-vous</a>
+          <a href="{{ url_for('services') }}" class="btn btn-outline-light btn-lg">Voir les prestations</a>
+        </div>
+      </div>
+      <div class="col-lg-5 mt-5 mt-lg-0" data-reveal>
+        <div class="luxury-visual hero-visual">
+          <div class="placeholder-shine"></div>
+          <p>Micro Shading</p>
+          <span>Avant / après, espace beauté et portraits à intégrer ici</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad bg-cream">
+  <div class="container">
+    <div class="section-heading" data-reveal>
+      <p class="eyebrow dark">Prestations signature</p>
+      <h2>Un regard travaillé avec précision</h2>
+    </div>
+    <div class="row g-4">
+      {% for service in services %}
+      <div class="col-md-4" data-reveal>
+        <article class="service-card h-100">
+          <div class="service-image soft-placeholder" style="background-image: linear-gradient(145deg, rgba(5, 5, 5, 0.86), rgba(54, 38, 12, 0.74)), url('{{ url_for('static', filename=service.image) }}');">
+            <span>{{ service.name }}</span>
+          </div>
+          <div class="p-4">
+            <h3>{{ service.name }}</h3>
+            <p>{{ service.description }}</p>
+            <div class="service-meta">
+              <span>60 min</span>
+              <span>{{ service.price }}</span>
+            </div>
+            <a href="{{ url_for('booking', service_id=service.id) }}" class="btn btn-dark-gold w-100 mt-3">Réserver</a>
+          </div>
+        </article>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section-pad bg-black">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-5" data-reveal>
+        <p class="eyebrow">Pourquoi JBROW</p>
+        <h2 class="text-white display-serif">Une maison beauté exigeante, douce et précise</h2>
+      </div>
+      <div class="col-lg-7">
+        <div class="row g-3">
+          {% for item in ["Diagnostic personnalisé", "Hygiène et précision", "Rendu poudré élégant", "Parcours simple et rassurant"] %}
+          <div class="col-sm-6" data-reveal>
+            <div class="reason-box">{{ item }}</div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="container">
+    <div class="section-heading" data-reveal>
+      <p class="eyebrow dark">Galerie</p>
+      <h2>Avant / après et inspirations</h2>
+    </div>
+    <div class="gallery-grid">
+      {% for label in ["Avant / Après", "Espace beauté", "Sourcils poudrés", "Beauté du regard"] %}
+      <div class="gallery-item gallery-{{ loop.index }}" data-reveal><span>{{ label }}</span></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section-pad bg-cream">
+  <div class="container">
+    <div class="row g-4">
+      {% for testimonial in testimonials %}
+      <div class="col-md-4" data-reveal>
+        <div class="testimonial h-100">
+          <p>“{{ testimonial.text }}”</p>
+          <strong>{{ testimonial.name }}</strong>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container text-center" data-reveal>
+    <p class="eyebrow">Votre prochain rendez-vous</p>
+    <h2>Offrez à votre regard une finition impériale.</h2>
+    <a href="{{ url_for('booking') }}" class="btn btn-gold btn-lg">Choisir un créneau</a>
+  </div>
+</section>
+{% endblock %}

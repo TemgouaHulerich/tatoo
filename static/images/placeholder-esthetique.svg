@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100">
+  <rect width="900" height="1100" fill="#050505"/>
+  <path d="M450 165 C640 305 660 650 450 840 C240 650 260 305 450 165 Z" fill="#181109" stroke="#d8a43a" stroke-width="6"/>
+  <path d="M315 560 C380 520 520 520 585 560" fill="none" stroke="#f6df90" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="450" cy="410" r="95" fill="none" stroke="#b97818" stroke-width="8"/>
+  <text x="166" y="965" fill="#f6df90" font-family="Georgia, serif" font-size="80">Esthétique</text>
+</svg>

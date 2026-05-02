@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100">
+  <rect width="900" height="1100" fill="#070605"/>
+  <path d="M150 520 C290 360 610 360 750 520 C610 680 290 680 150 520 Z" fill="#15100b" stroke="#d8a43a" stroke-width="6"/>
+  <circle cx="450" cy="520" r="92" fill="#f6df90" opacity=".76"/>
+  <circle cx="450" cy="520" r="42" fill="#050505"/>
+  <path d="M235 395 C330 305 565 305 665 395" fill="none" stroke="#f6df90" stroke-width="16" stroke-linecap="round"/>
+  <text x="106" y="965" fill="#f6df90" font-family="Georgia, serif" font-size="72">Beauté du regard</text>
+</svg>

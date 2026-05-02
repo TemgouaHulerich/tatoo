@@ -17,6 +17,7 @@ from flask import (
     url_for,
 )
 from werkzeug.security import check_password_hash, generate_password_hash
+from whitenoise import WhiteNoise
 
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
@@ -31,6 +32,12 @@ def create_app():
     app = Flask(__name__)
     app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", secrets.token_hex(32))
     app.config["DATABASE"] = os.environ.get("DATABASE_URL", DATABASE)
+    app.wsgi_app = WhiteNoise(
+        app.wsgi_app,
+        root=os.path.join(BASE_DIR, "static"),
+        prefix="static/",
+        max_age=31536000,
+    )
 
     os.makedirs(os.path.join(BASE_DIR, "instance"), exist_ok=True)
 

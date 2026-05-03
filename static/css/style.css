@@ -182,23 +182,24 @@ a {
 }
 
 .hero-visual {
-  background-image: linear-gradient(145deg, rgba(5, 5, 5, 0.78), rgba(54, 38, 12, 0.74)), url("../images/placeholder-hero.svg");
+  background-image: linear-gradient(145deg, rgba(5, 5, 5, 0.52), rgba(54, 38, 12, 0.6)), url("../images/hero-beauty.jpg");
 }
 
 .gallery-1 {
-  background-image: linear-gradient(145deg, rgba(5, 5, 5, 0.8), rgba(54, 38, 12, 0.72)), url("../images/placeholder-before-after.svg");
+  background-image: linear-gradient(145deg, rgba(5, 5, 5, 0.46), rgba(54, 38, 12, 0.34)), url("../images/beforeAfter3.jpg");
+  background-position: center top;
 }
 
 .gallery-2 {
-  background-image: linear-gradient(145deg, rgba(5, 5, 5, 0.8), rgba(54, 38, 12, 0.72)), url("../images/placeholder-space.svg");
+  background-image: linear-gradient(145deg, rgba(5, 5, 5, 0.58), rgba(54, 38, 12, 0.5)), url("../images/hero-beauty.jpg");
 }
 
 .gallery-3 {
-  background-image: linear-gradient(145deg, rgba(5, 5, 5, 0.8), rgba(54, 38, 12, 0.72)), url("../images/placeholder-micro-shading.svg");
+  background-image: linear-gradient(145deg, rgba(5, 5, 5, 0.62), rgba(54, 38, 12, 0.5)), url("../images/service-micro-shading.jpg");
 }
 
 .gallery-4 {
-  background-image: linear-gradient(145deg, rgba(5, 5, 5, 0.8), rgba(54, 38, 12, 0.72)), url("../images/placeholder-regard.svg");
+  background-image: linear-gradient(145deg, rgba(5, 5, 5, 0.62), rgba(54, 38, 12, 0.5)), url("../images/gallery-regard.jpg");
 }
 
 .luxury-visual::before,
@@ -477,12 +478,29 @@ a {
   font-size: 0.86rem;
 }
 
+.footer-link,
+.footer-legal a,
+.contact-panel a:not(.btn) {
+  color: var(--gold-light);
+}
+
+.footer-link:hover,
+.footer-legal a:hover,
+.contact-panel a:not(.btn):hover {
+  color: #fff5d8;
+}
+
 .footer-bottom {
   border-top: 1px solid rgba(216, 164, 58, 0.18);
   margin-top: 2rem;
   padding-top: 1.25rem;
   color: rgba(255, 250, 241, 0.46);
   font-size: 0.9rem;
+}
+
+.footer-legal {
+  margin-top: 0.45rem;
+  color: rgba(255, 250, 241, 0.58);
 }
 
 .admin-login {

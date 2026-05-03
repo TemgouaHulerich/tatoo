@@ -350,22 +350,31 @@ def init_db():
                     "Restructuration et pigmentation semi-permanente des sourcils pour un rendu poudré, net et élégant.",
                     60,
                     "Sur devis",
-                    "images/placeholder-micro-shading.svg",
+                    "images/service-micro-shading.jpg",
                 ),
                 (
                     "Esthétique",
                     "Soins beauté personnalisés pour sublimer le visage et le regard.",
                     60,
                     "Prix à confirmer",
-                    "images/placeholder-esthetique.svg",
+                    "images/service-esthetique.jpg",
                 ),
                 (
                     "Beauté du regard",
                     "Prestations dédiées à l'harmonie du regard.",
                     60,
                     "Prix à confirmer",
-                    "images/placeholder-regard.svg",
+                    "images/service-regard.jpg",
                 ),
+            ],
+        )
+    else:
+        db.executemany(
+            "UPDATE services SET image = ? WHERE name = ?",
+            [
+                ("images/service-micro-shading.jpg", "Micro Shading"),
+                ("images/service-esthetique.jpg", "Esthétique"),
+                ("images/service-regard.jpg", "Beauté du regard"),
             ],
         )
     db.commit()

@@ -64,13 +64,22 @@
         <div class="col-md-4">
           <p class="mb-1 text-uppercase small gold-text">Horaires</p>
           <p class="mb-0">Sur rendez-vous, {{ opening_hours_label }}</p>
+          <p class="mb-0 mt-2">Téléphone : <a href="tel:+237678316989" class="footer-link">+237 6 78 31 69 89</a></p>
         </div>
         <div class="col-md-3 text-md-end">
           <a href="{{ url_for('booking') }}" class="btn btn-outline-gold btn-sm">Réserver</a>
           <a href="{{ url_for('admin_login') }}" class="footer-admin-link">Admin</a>
         </div>
       </div>
-      <div class="footer-bottom">© {{ current_year }} JBROW. La beauté rend tout meilleur.</div>
+      <div class="footer-bottom">
+        <div>© {{ current_year }} JBROW, Lashes & Beauty Empire. Tous droits réservés.</div>
+        <div class="footer-legal">
+          Site édité par <strong>aifreecam</strong> ·
+          <a href="{{ url_for('contact') }}">Mentions légales</a> ·
+          <a href="{{ url_for('contact') }}">Confidentialité</a> ·
+          La beauté rend tout meilleur.
+        </div>
+      </div>
     </div>
   </footer>
 

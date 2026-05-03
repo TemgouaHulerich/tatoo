@@ -32,6 +32,10 @@ def create_app():
     app = Flask(__name__)
     app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", secrets.token_hex(32))
     app.config["DATABASE"] = os.environ.get("DATABASE_URL", DATABASE)
+    app.config["ASSET_VERSION"] = os.environ.get(
+        "ASSET_VERSION",
+        str(int(os.path.getmtime(os.path.join(BASE_DIR, "static", "css", "style.css")))),
+    )
     app.wsgi_app = WhiteNoise(
         app.wsgi_app,
         root=os.path.join(BASE_DIR, "static"),
@@ -61,6 +65,7 @@ def create_app():
             "opening_hours_label": "08:00 - 17:00",
             "current_year": datetime.now().year,
             "logo_path": "images/logo.jpeg",
+            "asset_version": app.config["ASSET_VERSION"],
         }
 
     @app.route("/")
